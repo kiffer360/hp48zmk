@@ -95,7 +95,7 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)  RC(7,0) RC(7,1) RC(7,2) RC(7,3)
 // UART baud rate. 14400 is the closest to the ~14.9 kHz PS/2 clock and works
 // with all TrackPoints the community has tested. If your module doesn't
 // respond, try <19200> or <9600>.
-#define MOUSE_PS2_UART_BAUD_RATE <14400>
+#define MOUSE_PS2_UART_BAUD_RATE <9600>
 
 /*
  * Do NOT change anything below if you are using a nice!nano v2 (or clone).
