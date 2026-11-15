@@ -1,0 +1,2 @@
+config SHIELD_HP48
+    def_bool $(shields_list_contains,hp48)

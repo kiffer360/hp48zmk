@@ -1,0 +1,68 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+/*
+ * Each layer is 48 bindings in physical order: 4 rows of 12 keys.
+ * The matrix transform in hp48.overlay (8 rows x 6 columns) maps them:
+ *   left half  (keys 1-6 of each row)  -> matrix rows 0-3
+ *   right half (keys 7-12 of each row) -> matrix rows 4-7
+ */
+
+#define BASE     0
+#define FN       1
+#define NUM      2
+#define MOUSE_TP 3
+
+// TrackPoint support (mouse_tp.dtsi needs these two defines first)
+#define HAS_MOUSE_TP
+#include "include/mouse_tp.dtsi"
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            display-name = "Base";
+            bindings = <
+&kp ESC   &kp Q   &kp W   &kp E     &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O     &kp P      &kp BSPC
+&kp TAB   &kp A   &kp S   &kp D     &kp F      &kp G      &kp H      &kp J      &kp K      &kp L     &kp SEMI   &kp RET
+&kp LSHFT &kp Z   &kp X   &kp C     &kp V      &kp B      &kp N      &kp M      &kp COMMA  &kp DOT   &kp UP     &kp FSLH
+&kp LCTRL &mo FN  &kp LALT &mo NUM  &kp SPACE  &mkp LCLK  &mkp MCLK  &mkp RCLK  &kp GRAVE  &kp LEFT  &kp DOWN   &kp RIGHT
+            >;
+        };
+
+        fn_layer {
+            display-name = "Fn";
+            bindings = <
+&bootloader &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7      &kp F8      &kp F9    &kp F10   &kp DEL
+&sys_reset  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR   &kp F11     &kp F12     U_MSS_TP_S_D U_MSS_TP_S_I U_MSS_LOG
+&trans      &out OUT_USB &out OUT_BLE &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp C_PP     &kp C_PREV  &kp C_NEXT  &trans    &kp PG_UP &trans
+&trans      &trans       &trans       &trans       &trans       &trans       &trans       &trans      &trans      &kp HOME  &kp PG_DN &kp END
+            >;
+        };
+
+        num_layer {
+            display-name = "Num";
+            bindings = <
+&trans &kp N1     &kp N2    &kp N3    &kp N4      &kp N5     &kp N6    &kp N7     &kp N8    &kp N9     &kp N0     &trans
+&trans &kp EXCL   &kp AT    &kp HASH  &kp DLLR    &kp PRCNT  &kp CARET &kp AMPS   &kp ASTRK &kp LPAR   &kp RPAR   &trans
+&trans &kp LBKT   &kp RBKT  &kp LBRC  &kp RBRC    &kp BSLH   &kp PIPE  &kp TILDE  &kp UNDER &kp PLUS   &trans     &trans
+&trans &trans     &trans    &trans    &trans      &kp SQT    &kp MINUS &kp EQUAL  &trans    &trans     &trans     &trans
+            >;
+        };
+
+        // Turns on automatically while the TrackPoint is moving.
+        // Everything passes through, so the base layer keeps working.
+        mouse_tp_layer {
+            display-name = "Mouse";
+            bindings = <
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+    };
+};

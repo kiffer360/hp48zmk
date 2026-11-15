@@ -1,0 +1,8 @@
+file_format: "1"
+id: hp48
+name: HP48
+type: shield
+url: https://github.com/kiffer360/hp48zmk.git
+requires: [pro_micro]
+features:
+  - keys

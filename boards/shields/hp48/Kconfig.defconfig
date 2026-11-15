@@ -1,0 +1,6 @@
+if SHIELD_HP48
+
+config ZMK_KEYBOARD_NAME
+    default "HP48"
+
+endif
