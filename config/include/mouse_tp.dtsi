@@ -34,8 +34,8 @@
 #ifdef MOUSE_PS2_DT_PRESENT
 
 &mouse_ps2_input_listener {
-     xy-swap;
-     x-invert;
+     //xy-swap;
+     //x-invert;
     // y-invert;
 
     // Layer that turns on automatically while the stick is moving
@@ -50,8 +50,8 @@
     // tp-neg-inertia = <6>;
     // tp-press-to-select;
     // tp-press-to-select-threshold = <10>;
-    // tp-xy-swap;
-    // tp-x-invert;
+     tp-xy-swap;
+     tp-x-invert;
     // tp-y-invert;
     // sampling-rate = <60>;   // allowed: 10,20,40,60,80,100,200
     // disable-clicking;
