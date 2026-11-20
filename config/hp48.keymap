@@ -33,7 +33,7 @@
 &kp BSPC     &kp P        &kp O        &kp I        &kp U        &kp Y        &kp T        &kp R        &kp E        &kp W        &kp Q        &kp ESC
 &kp RET      &kp SEMI     &kp L        &kp K        &kp J        &kp H        &kp G        &kp F        &kp D        &kp S        &kp A        &kp TAB
 &kp FSLH     &kp UP       &kp DOT      &kp COMMA    &kp M        &kp N        &kp B        &kp V        &kp C        &kp X        &kp Z        &kp LSHFT
-&kp RIGHT    &kp DOWN     &kp LEFT     &kp GRAVE    &mkp RCLK    &mkp MCLK    &mkp LCLK    &kp SPACE    &mo NUM      &kp LALT     &mo FN       &kp LCTRL
+&kp RIGHT    &kp DOWN     &kp LEFT     &mkp RCLK    &mkp MCLK    &mkp LCLK    &kp SPACE    &mo NUM      &kp LALT     &mo FN       &kp LCTRL    &kp GRAVE
             >;
         };
 
